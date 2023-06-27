@@ -6,7 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (_req, res) => res.status(200).send('API rodando'));
+app.get('/', (_req, res) => {
+  console.log('chegou aqui???');
+  res.status(200).send('API rodando')
+});
 
 app.get('/pets-handler/read-all', readAll);
 app.get('/pets-handler/read/:id', read); 
@@ -27,22 +30,26 @@ const { Pets } = require('./models/index');
 
 
 async function readAll(_req, res) {
+  console.log('chegou aqui???');
   const response = await Pets.findAll();
   res.status(200).send(response);
 }
 
 async function read(req, res) {
+  console.log('chegou aqui???');
   const response = await Pets.findOne({ where: { id: req.params.id } });
   res.status(200).json(response);
 }
 
 async function create(req, res) {
+  console.log('chegou aqui???');
   const { nome, idade, eGatoOuCachorro, raca, nomeDoDono, telefoneDeContato } = req.body;
   const response = await Pets.create({ nome, idade, eGatoOuCachorro, raca, nomeDoDono, telefoneDeContato });
   res.status(201).json({message: 'Pet registrado com sucesso', response: response, registred: true});
 }
 
 async function update(req, res) {
+  console.log('chegou aqui???');
   const { nome, idade, eGatoOuCachorro, raca, nomeDoDono, telefoneDeContato } = req.body;
   const response = await Pets.update(
     { nome, idade, eGatoOuCachorro, raca, nomeDoDono, telefoneDeContato },
@@ -52,6 +59,7 @@ async function update(req, res) {
 }
 
 async function del(req, res) {
+  console.log('chegou aqui???');
   const response = await Pets.destroy({ where: { id: req.params.id } });
   res.status(201).json({message: 'Registro de pet deletado com sucesso', response: response});
 }
