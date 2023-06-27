@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (_req, res) => res.status(200).send('API rodando'));
 app.use('/pets-handler', petsRoute);
 app.use(errorHandler);
 

@@ -5,16 +5,27 @@
   "main": "index.js",
   "scripts": {
     "db": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "server": "npm install && npm run db && cd server && npm install && npm start",
+    "server": "npm install && npm run db && nodemon .",
     "client": "cd client && npm install && npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.26.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
     "pg": "^8.11.0",
     "sequelize": "^6.32.1",
-    "sequelize-cli": "^6.6.1"
+    "sequelize-cli": "^6.6.1",
+    "joi": "^17.9.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "sinon": "^15.2.0"
   }
 }

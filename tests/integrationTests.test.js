@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const chai = require('chai');
 
-const { app } = require('../index');
+const { app } = require('../../index');
 const { Pets } = require('../models/index');
 
 const chaiHttp = require('chai-http');

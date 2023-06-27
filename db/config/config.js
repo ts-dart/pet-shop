@@ -6,11 +6,11 @@ const supabaseKey = process.env.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const config = {
-  username: process.env.DB_USERNAME || "postgres",
-  password: process.env.DB_PASSWORD || "Edusanthiago753951!",
+  username: "postgres",
+  password: "Edusanthiago753951!",
   host: 'db.dsqzaucgchplpqrpxydu.supabase.co',
   dialect: "postgres",
-  port: process.env.DB_PORT || 5432
+  port: 5432
 };
 
 const connectToSupabase = async () => {
