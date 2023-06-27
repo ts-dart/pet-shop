@@ -1,8 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
-const { Sequelize } = require('sequelize');
 
 const supabaseUrl = 'https://dsqzaucgchplpqrpxydu.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzcXphdWNnY2hwbHBxcnB4eWR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODc3NDM3ODcsImV4cCI6MjAwMzMxOTc4N30.ICyWFgkxz2YTCX9BNELkEp6Awry-dgsqo32KZ2WnW2c';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzcXphdWNnY2hwbHBxcnB4eWR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODc3NDM3ODcsImV4cCI6MjAwMzMxOTc4N30.ICyWFgkxz2YTCX9BNELkEp6Awry-dgsqo32KZ2WnW2c';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const config = {

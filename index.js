@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
 const petsRoute = require('./routes/petsRoute');
@@ -14,7 +12,5 @@ app.get('/', (_req, res) => res.status(200).send('API rodando'));
 app.use('/pets-handler', petsRoute);
 app.use(errorHandler);
 
-const PORT = process.env.API_PORT || 3001;
+const PORT = 3001;
 app.listen(PORT, () => console.log('online na porta: ', PORT));
-
-module.exports = { app };
