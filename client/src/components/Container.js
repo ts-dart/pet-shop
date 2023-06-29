@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import RegisterPet from './RegisterPet';
 import View from './View';
 
+import iconLoading from '../images/icons8-loading.gif';
+
 export default function Container() {
   const [allPetsRegisteredData, setAllPetsRegisteredData] = useState([]);
   const [allPetsRegistered, setAllPetsRegistered] = useState([]);
@@ -12,6 +14,7 @@ export default function Container() {
   const [registerEndpoint, setRegisterEndpoint] = useState('');
   const [deleted, setDeleted] = useState(true);
   const [created, setCreated] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const deletePet = (id) => {
     fetch(`https://petshop-api-14ko.onrender.com/pets-handler/delete/${id}`, {
@@ -19,7 +22,10 @@ export default function Container() {
       headers: { 'Content-Type': 'application/json' }
     })
     .then((data) => data.json())
-    .then((data) => setDeleted(!deleted));
+    .then((_data) => {
+      setDeleted(!deleted)
+      setLoading(false);
+    });
   }
 
   const handleFilterList = ({ target: { value } }) => {
@@ -31,11 +37,13 @@ export default function Container() {
   }
 
   useEffect(() => {
+    setLoading(true);
     fetch('https://petshop-api-14ko.onrender.com/pets-handler/read-all')
       .then((data) => data.json())
       .then((data) => {
         setAllPetsRegistered(data);
         setAllPetsRegisteredData(data)
+        setLoading(false);
       });
   }, [created, deleted]);
 
@@ -66,7 +74,10 @@ export default function Container() {
                   <div className='info-p-article'>Nome do dono(a): <p className='p-space'>{pet.nomeDoDono}</p></div>
                   <div className='info-p-article'>Telefone de contato: <p className='p-space'>{pet.telefoneDeContato}</p></div>
                 </section>
-                <button onClick={() => deletePet(pet.id)}>deletar</button>
+                <button onClick={() => {
+                  setLoading(true);
+                  deletePet(pet.id)
+                }}>deletar</button>
                 <button 
                   className='make-part-register-pet-component'
                   onClick={() => {
@@ -82,8 +93,16 @@ export default function Container() {
                 }}>Mais informações</button>
               </article>
             ))
+          ) : loading ? (
+            <p id='p-gif-loading-container'>
+              <img 
+                src={iconLoading} 
+                alt='gif loading'
+                id='img-gif-loading-container'
+              />
+            </p>
           ) : (
-            <p id='feedback-no-pets'>Nenhum pet registrado</p>
+            <p id='feedback-no-pets'>Nenhum pet encontrado</p>
           )}
         </section>
       </section>

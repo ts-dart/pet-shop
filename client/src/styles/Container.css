@@ -65,6 +65,15 @@
   width: 96.8%;
 }
 
+#img-gif-loading-container {
+  width: 50px;
+  height: 50px;
+}
+
+#p-gif-loading-container {
+  margin: 150px 0px 0px 300px;
+}
+
 .p-space {
   margin-left: 5px;
 }
