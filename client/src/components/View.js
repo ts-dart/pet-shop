@@ -8,7 +8,7 @@ export default function View({ setShowView, idView }) {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3001/pets-handler/read/${idView}`)
+    fetch(`https://petshop-api-14ko.onrender.com/pets-handler/read/${idView}`)
       .then((data) => data.json())
       .then((data) => setData(data));
 
