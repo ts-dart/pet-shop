@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "npm run db && node ."
   },
   "author": "",
