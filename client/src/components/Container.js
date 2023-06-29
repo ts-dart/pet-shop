@@ -82,7 +82,7 @@ export default function Container() {
                   className='make-part-register-pet-component'
                   onClick={() => {
                     setCreated(false);
-                    setRegisterEndpoint(`update/${pet.id}`);
+                    setRegisterEndpoint(`/update/${pet.id}`);
                     setShowRegisterPet(!showRegisterPet);
                 }}>editar</button>
                 <button 
