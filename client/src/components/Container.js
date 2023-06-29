@@ -14,7 +14,7 @@ export default function Container() {
   const [created, setCreated] = useState(false);
 
   const deletePet = (id) => {
-    fetch(`http://127.0.0.1:3001/pets-handler/delete/${id}`, {
+    fetch(`https://petshop-api-14ko.onrender.com/pets-handler/delete/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -31,7 +31,7 @@ export default function Container() {
   }
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3001/pets-handler/read-all')
+    fetch('https://petshop-api-14ko.onrender.com/pets-handler/read-all')
       .then((data) => data.json())
       .then((data) => {
         setAllPetsRegistered(data);
