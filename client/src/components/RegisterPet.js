@@ -154,7 +154,7 @@ export default function RegisterPet({ showRegisterPetComponent, setCreated, regi
               disabled={btnDisabled}
               onClick={() => {
                 setRegistred('registering');
-                fetch(`http://127.0.0.1:3001/pets-handler/${registerEndpoint}`, {
+                fetch(`https://petshop-api-14ko.onrender.com/pets-handler/${registerEndpoint}`, {
                   method: registerEndpoint.includes('create') ? 'POST' : 'PUT',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({
