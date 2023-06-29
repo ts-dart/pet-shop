@@ -18,9 +18,6 @@ const connectToSupabase = async () => {
     console.log('Conexão estabelecida com o Supabase.');
     await sequelize.authenticate();
     console.log('Conexão estabelecida com o PostgreSQL.');
-
-    const databaseName = 'postgres';
-    await supabase.rpc('delete_database', { databaseName });
   } catch (error) {
     console.error('Erro ao conectar ao Supabase e/ou PostgreSQL:', error.message);
   }
